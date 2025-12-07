@@ -4,7 +4,7 @@
     //? "http://localhost:8787"
     //: "https://ms-engine-test.sinnosukeyamane.workers.dev";
 
-const BASE = "https://ms-engine-test.sinnosukeyamane.workers.dev";
+const BASE = "https://ms-engine-test.s-yamane.workers.dev";
 
 
 if (!BASE) throw new Error("VITE_PERSONA_API_BASE is missing");
