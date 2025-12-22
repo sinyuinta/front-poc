@@ -1420,7 +1420,7 @@ const colors = {
 
     <div className="homeContent">
       <h1 className="mainTitle">
-        思考アスレチック<span className="tm">®</span>
+        思考アスレチック(工事中)<span className="tm">®</span>
       </h1>
       <h2 className="subTitle seq">
         <span className="word delay1">気づいて、</span>
