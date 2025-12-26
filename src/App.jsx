@@ -1550,13 +1550,7 @@ const colors = {
     >
       🔑 ログイン
     </button>
-    <button
-  onClick={() => {
-    window.open(`/export/pdf?team=${teamName}`, "_blank");
-  }}
->
-  PDF出力
-</button>
+
 
   </div>
   
@@ -1722,7 +1716,13 @@ const colors = {
 >
   設定変更
 </button>
-
+    <button
+  onClick={() => {
+    window.open(`/export/pdf?team=${teamName}`, "_blank");
+  }}
+>
+  PDF出力
+</button>
 
           {/* 難易度 */}
           <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
