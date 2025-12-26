@@ -1550,7 +1550,16 @@ const colors = {
     >
       🔑 ログイン
     </button>
+    <button
+  onClick={() => {
+    window.open(`/export/pdf?team=${teamName}`, "_blank");
+  }}
+>
+  PDF出力
+</button>
+
   </div>
+  
 )}
 
 
