@@ -1,0 +1,1115 @@
+:root {
+  --bg: #f6f7fb;
+  --card: #fff;
+  --ink: #111;
+  --muted: #6b7280;
+  --line: #e5e7eb;
+  --blue: #3b82f6;
+  --green: #10b981;
+  --dark: #111827;
+  --amber: #f59e0b;
+  --violet: #8b5cf6;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial,
+    sans-serif;
+}
+
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
+
+/* ===== ボタン ===== */
+button {
+  border: none;
+  border-radius: 12px;
+  padding: 10px 14px;
+  cursor: pointer;
+  font-family: inherit;
+}
+.btn {
+  background: #eceff3;
+}
+.btn:active {
+  transform: translateY(1px);
+}
+.btnDark {
+  background: var(--dark);
+  color: #fff;
+}
+.btnBlue {
+  background: var(--blue);
+  color: #fff;
+}
+
+.btnPrimary,
+.btnSecondary {
+  background: #f8fafc;
+  color: #111;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  padding: 10px 28px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  margin-bottom: 1rem;
+}
+
+.btnPrimary:hover,
+.btnSecondary:hover {
+  background: #e2e8f0;
+}
+
+/* ===== カード・汎用レイアウト ===== */
+.card {
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 12px;
+}
+.hint {
+  font-size: 12px;
+  color: var(--muted);
+}
+
+.container {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 8px 10px;
+}
+.containerWide {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 8px 10px;
+}
+
+/* ===== ヘッダー ===== */
+
+.headRow {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  padding: 8px 0;
+  flex-wrap: wrap;
+}
+.navTabs {
+  display: flex;
+  gap: 6px;
+  margin-left: auto;
+}
+.navTabs > button {
+  background: #eceff3;
+  padding: 6px 10px;
+  border-radius: 10px;
+}
+.navTabs .on {
+  background: #111;
+  color: #fff;
+}
+.topicRow {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  padding: 0 0 8px 0;
+}
+.topicRow .label {
+  font-size: 12px;
+  color: #64748b;
+}
+.topicRow input {
+  flex: 1;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 10px 12px;
+  font-size: 16px;
+}
+
+/* =========================================================
+   🎬 INTRO + HOME（統合アニメーション構成）
+========================================================= */
+
+.introWrap {
+  position: relative;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: #fff; /* 白背景 */
+  text-align: center;
+  transition: background 1.2s ease;
+}
+
+.brain-shower {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.brain {
+  position: absolute;
+  top: -10%;
+  opacity: 0.85;
+  animation: fallBrain linear infinite;
+}
+
+@keyframes fallBrain {
+  0% {
+    transform: translateY(-10vh) rotate(0deg);
+    opacity: 0;
+  }
+  15% {
+    opacity: 1;
+  }
+  85% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(110vh) rotate(360deg);
+    opacity: 0;
+  }
+}
+
+
+
+/* 拳＋知性タイトル */
+.introRow {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  transform-origin: center;
+  transition: transform 1.2s ease;
+}
+
+.punchAnim {
+  width: 160px;
+  opacity: 0;
+  transform: scale(0.3) rotate(-10deg);
+  animation: punchIn 0.6s cubic-bezier(0.25, 1.3, 0.5, 1) forwards;
+}
+
+.introTitle {
+  font-size: 2.4rem;
+  font-weight: 800;
+  color: #000;
+  opacity: 0;
+  animation: fadeInText 0.8s ease forwards;
+  animation-delay: 0.2s;
+}
+
+/* HOMEの本体部分 */
+.homeContent {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 1.2s ease, transform 1.2s ease;
+}
+
+/* 🎞 各ステージ */
+.introWrap.intro .introRow {
+  transform: scale(1) translateY(0);
+}
+/* ===== HOME部分アニメーション修正版 ===== */
+
+/* 初期状態 */
+.introWrap.intro .homeContent {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+/* フェードイン中 */
+.introWrap.moveUp .homeContent{  /* ← doneでも維持 */
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 1.2s ease, transform 1.2s ease;
+}
+
+/* ==== DONE状態（アニメーション終了・表示維持） ==== */
+.introWrap.done {
+  pointer-events: none; /* 全体はクリックブロック解除 */
+}
+
+.introWrap.done .introRow {
+  transform: scale(0.55) translateY(-200px);
+  opacity: 1; /* ← 拳も残す */
+}
+
+.introWrap.done .homeContent {
+  opacity: 1; /* ← これが超重要！消えなくする */
+  transform: translateY(0);
+  pointer-events: auto; /* ← HOME内は操作可能 */
+}
+
+
+
+.introWrap.moveUp .introRow {
+  transform: scale(0.6) translateY(-180px);
+}
+
+
+
+/* ===== 拳のアニメーション ===== */
+@keyframes punchIn {
+  0% {
+    opacity: 0;
+    transform: scale(0.3) rotate(-10deg);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.1) rotate(5deg);
+  }
+  70% {
+    transform: scale(0.95) rotate(0deg);
+  }
+  100% {
+    transform: scale(1) rotate(0deg);
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInText {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+
+
+
+
+/* ===== ヘッダー開閉アニメーション ===== */
+
+
+.topicHead {
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  background: #fff;
+  border-bottom: 1px solid var(--line);
+  overflow: hidden;
+  transition: max-height 0.35s ease, opacity 0.35s ease;
+}
+
+.topicHead.open {
+  max-height: 320px;
+  opacity: 1;
+}
+
+.topicHead.closed {
+  max-height: 0px;      /* ← 完全に閉じる */
+  opacity: 0;
+  border-bottom: none;
+}
+
+
+
+/* ===== トグルボタン固定配置 ===== */
+/* ===== トグルボタン固定配置 ===== */
+/* トグルボタンをヘッダー右端に配置（わかりやすく） */
+
+
+
+
+
+
+/* ===== HOMEタイトル群 ===== */
+.mainTitle {
+  font-size: 3.4rem;
+  font-weight: 900;
+  line-height: 1.25;
+  margin-bottom: 1.3em;
+}
+
+.subTitle.seq {
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  color: #111;
+  letter-spacing: 0.04em;
+}
+.subTitle .word {
+  opacity: 0;
+  transform: translateY(10px);
+  display: inline-block;
+  animation: wordIn 0.8s ease-out forwards;
+}
+.word.delay1 {
+  animation-delay: 0.6s;
+}
+.word.delay2 {
+  animation-delay: 1.3s;
+}
+.word.delay3 {
+  animation-delay: 2s;
+}
+@keyframes wordIn {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+
+/* ===== 余白・縦バランスの微調整 ===== */
+
+/* 拳＋タイトル */
+.introRow {
+  gap: 16px;
+  margin-bottom: -9rem; /* ← 拳と下のテキストの距離 */
+}
+
+/* HOMEタイトル群 */
+.mainTitle {
+  font-size: 3.2rem;
+  margin-top: 1.2rem;     /* ← 拳との間を少し詰める */
+  margin-bottom: 1.4rem;  /* ← サブタイトルとの距離 */
+  line-height: 1.25;
+}
+
+/* サブタイトル（気づいて、協働し、調べる） */
+.subTitle.seq {
+  font-size: 1.7rem;
+  margin-top: 0.2rem;
+  margin-bottom: 2.8rem;  /* ← ボタンまでの距離を広げる */
+}
+
+/* ==== HOMEボタン群（スタート＆設定） ==== */
+/* ==== HOMEボタン群（スタート＆設定） ==== */
+.buttonGroup {
+  display: flex;
+  flex-direction: row; /* ← 横並びを明示！ */
+  justify-content: center; /* ← 真ん中に寄せる */
+  align-items: center;
+  gap: 1rem; /* ← ボタン間の余白をしっかり広げる（お好みで3〜8rem） */
+  margin-top: 3rem;
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeInButtons 1s ease forwards;
+  animation-delay: 3s;
+}
+
+
+@keyframes fadeInButtons {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ==== ホバー効果 ==== */
+.buttonGroup button {
+  transition: all 0.25s ease;
+  transform-origin: center;
+}
+
+.buttonGroup button:hover {
+  transform: scale(1.08) rotate(-2deg);
+  box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+}
+
+/* 全体の縦方向のゆとり */
+.introWrap {
+  padding-top: 2vh;       /* ← 全体の「上の空き」 */
+  padding-bottom: 4vh;    /* ← 下側のマージン */
+}
+
+
+
+
+
+
+
+
+.frontMain {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.block {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.blockTitle {
+  font-weight: 700;
+  color: #1e293b;
+  font-size: 1.05rem;
+  margin-bottom: 4px;
+}
+
+.input, .textarea {
+  border: 1px solid #cbd5e1;
+  border-radius: 6px;
+  padding: 8px 10px;
+  background: #fff;
+  font-size: 0.95rem;
+  width: 100%;
+}
+
+.textarea {
+  resize: vertical;
+}
+
+.btnGroup {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.readonlyBox {
+  white-space: pre-wrap;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  padding: 8px;
+}
+
+.note {
+  color: #64748b;
+  font-size: 0.85rem;
+}
+
+/* spin */
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+
+/* =========================================================
+   Board, Modal, Switch など既存パート（そのまま）
+========================================================= */
+.matrixTopBar {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin-bottom: 6px;
+  flex-wrap: wrap;
+}
+
+/* === 🟦 Boardキャンバス（正方形＋矢印付き） === */
+.matrixCanvas {
+  position: relative;
+  aspect-ratio: 1 / 1;           /* ← 正方形に固定 */
+  width: 650px;         
+  margin: 10px auto;             /* ← 上下にゆとり */
+  border: 1px dashed var(--line);
+  border-radius: 2px;
+  background: #fff;
+  overflow: hidden;
+}
+
+/* 軸線 */
+.axisX,
+.axisY {
+  position: absolute;
+  background: #94a3b8;
+}
+
+/* 水平軸 */
+.axisX {
+  left: 6%;
+  right: 6%;
+  top: 50%;
+  height: 2px;
+}
+
+/* 垂直軸 */
+.axisY {
+  top: 6%;
+  bottom: 6%;
+  left: 50%;
+  width: 2px;
+}
+
+/* 軸ラベル */
+.axisLbl {
+  position: absolute;
+  font-size: 12px;
+  color: #64748b;
+}
+
+/* === 🟡 軸矢印マーク === */
+.axisArrow::after {
+  position: absolute;
+  font-size: 16px;
+  color: #64748b;
+  font-weight: 600;
+}
+
+.axisArrow.xLeft::after {
+  content: "◀";
+  left: 0;
+  top: 50%;
+  transform: translate(-60%, -50%);
+}
+
+.axisArrow.xRight::after {
+  content: "▶";
+  right: 0;
+  top: 50%;
+  transform: translate(60%, -50%);
+}
+
+.axisArrow.yTop::after {
+  content: "▲";
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, -60%);
+}
+
+.axisArrow.yBottom::after {
+  content: "▼";
+  bottom: 0;
+  left: 50%;
+  transform: translate(-50%, 60%);
+}
+
+/* ===== ノートがない時のメッセージ ===== */
+.matrixEmptyMsg {
+  position: absolute;
+  top: 30%;                   /* ← 効果(高)の真下より少し下に */
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 19px;
+  color: #6b7280;
+  text-align: center;
+  pointer-events: none;
+  user-select: none;
+}
+
+
+/* ノートカード */
+.mNote {
+  position: absolute;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 8px;
+  width: 240px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+
+
+/* ===== モーダル ===== */
+.gate {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+.gate .panel {
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 16px;
+  min-width: 280px;
+  max-width: 920px;
+}
+.gate .row {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  margin: 6px 0;
+}
+.gate input,
+.gate select,
+textarea {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  padding: 8px 10px;
+}
+
+/* ===== スイッチ ===== */
+.switch {
+  position: relative;
+  width: 48px;
+  height: 26px;
+  background: #e5e7eb;
+  border-radius: 999px;
+  cursor: pointer;
+}
+.switch .knob {
+  position: absolute;
+  top: 3px;
+  left: 3px;
+  width: 20px;
+  height: 20px;
+  background: #fff;
+  border-radius: 50%;
+  transition: left 0.18s;
+}
+.switch.on {
+  background: #111;
+}
+.switch.on .knob {
+  left: 25px;
+}
+
+/* ==========================================
+   📱 スマホ全体スケール調整（幅600px以下）
+========================================== */
+@media (max-width: 600px) {
+  body {
+    transform: scale(0.88);
+    transform-origin: top center;
+  }
+
+  html, body {
+    width: 100%;
+    overflow-x: hidden;
+  }
+}
+/* ==========================================
+   💡 トップ右上ボタンのミニデザイン
+========================================== */
+.topRightButtons {
+  position: fixed;
+  top: 10px;
+  right: 12px;
+  z-index: 9999;
+  display: flex;
+  gap: 6px;
+}
+
+.topRightButtons button {
+  padding: 6px 10px;
+  font-size: 13px;
+  border-radius: 8px;
+}
+
+/* スマホはさらに小さく・下に逃がす */
+@media (max-width: 600px) {
+  .topRightButtons {
+    top: auto;
+    bottom: 10px;
+    right: 50%;
+    transform: translateX(50%);
+    gap: 8px;
+  }
+
+  .topRightButtons button {
+    padding: 6px 8px;
+    font-size: 12px;
+  }
+}
+/* ==========================================
+   🎯 スマホ横画面だけ HOME を下にずらす
+========================================== */
+@media (max-height: 430px), (orientation: landscape) and (max-height: 500px) {
+  .introWrap {
+    padding-top: 60px !important;  /* ← これが決定打 */
+  }
+
+  .introRow {
+    transform: scale(0.55) translateY(-120px) !important; /* ← 上の圧を弱める */
+  }
+
+  .homeContent {
+    margin-top: 20px;
+  }
+}
+/* ==========================================
+   📱 スマホ時の Board サイズ最適化
+========================================== */
+
+/* スマホ縦画面（375〜430px幅） */
+@media (max-width: 600px) and (orientation: portrait) {
+  .matrixCanvas {
+    width: 90vw;              /* ← 画面幅の90%に縮小 */
+    max-width: 360px;         /* ← 大きすぎ防止 */
+    aspect-ratio: 1 / 1;      /* ← 正方形維持 */
+  }
+}
+
+/* 📱 スマホ横画面（高さが小さい） */
+@media (max-height: 450px) and (orientation: landscape) {
+  .matrixCanvas {
+    width: 70vh !important;   /* ← 高さ基準でサイズ決定 */
+    max-width: 500px;         /* ← PC以上にならないように */
+    margin: 0 auto 20px auto;
+  }
+
+  .matrixTopBar {
+    gap: 4px;                 /* ← ボタン群も少し詰める */
+  }
+}
+/* ==========================================
+   📱 スマホ横画面：Boardの操作UIを縮小
+========================================== */
+@media (max-height: 450px) and (orientation: landscape) {
+
+  /* 上の操作ボタン群を小型化 */
+  .matrixTopBar button {
+    padding: 4px 8px !important;
+    font-size: 12px !important;
+    border-radius: 6px !important;
+    transform: scale(0.9);
+  }
+
+  /* セレクトボックスも縮小 */
+  .matrixTopBar select {
+    padding: 4px 6px !important;
+    font-size: 12px !important;
+  }
+
+  /* 「指標：」ラベルも少し縮小 */
+  .matrixTopBar .label,
+  .matrixTopBar span {
+    font-size: 12px !important;
+  }
+
+  /* Board キャンバスとの間の余白も調整 */
+  .matrixTopBar {
+    margin-bottom: 2px !important;
+    gap: 4px !important;
+  }
+}
+/* ==========================================================
+   📱 スマホ横画面：全 UI を最適化（Front / Log / Board 共通）
+========================================================== */
+@media (max-height: 450px) and (orientation: landscape) {
+
+  /* 画面全体を少し縮小 */
+  body {
+    transform: scale(0.90);
+    transform-origin: top center;
+  }
+
+  /* ===== 1) 共通ボタンの縮小 ===== */
+  button, 
+  .btn, 
+  .btnPrimary, 
+  .btnSecondary {
+    padding: 4px 10px !important;
+    font-size: 13px !important;
+    border-radius: 8px !important;
+  }
+
+  /* ===== 2) 入力フォームを小さく ===== */
+  input, textarea, select {
+    font-size: 13px !important;
+    padding: 6px 10px !important;
+  }
+
+  /* ===== 3) Front の各ブロック間隔を縮める ===== */
+  .frontMain {
+    padding: 12px !important;
+    gap: 16px !important;
+  }
+
+  .blockTitle {
+    font-size: 1rem !important;
+    margin-bottom: 2px !important;
+  }
+
+  /* ===== 4) Log のカード間 ===== */
+  .readonlyBox {
+    font-size: 13px !important;
+    padding: 6px !important;
+  }
+
+  /* ===== 5) Board の操作UI（既に入れたもの＋補強） ===== */
+  .matrixTopBar button {
+    padding: 4px 8px !important;
+    font-size: 12px !important;
+    border-radius: 6px !important;
+  }
+  .matrixTopBar select {
+    padding: 4px 6px !important;
+    font-size: 12px !important;
+  }
+  .matrixTopBar {
+    gap: 4px !important;
+    margin-bottom: 4px !important;
+  }
+
+  /* ===== 6) Board キャンバス ===== */
+  .matrixCanvas {
+    width: 70vh !important;
+    max-width: 460px !important;
+    margin: 6px auto !important;
+  }
+
+  /* ===== 7) タブ（Front / Log / Board） ===== */
+  .navTabs > button {
+    padding: 4px 10px !important;
+    font-size: 12px !important;
+  }
+}
+/* ==========================================
+   📱 スマホ横画面：Board のノートカード & 点 を縮小
+========================================== */
+@media (max-height: 450px) and (orientation: landscape) {
+
+  /* ===== ノートカード（計画と実行など） ===== */
+  .mNote {
+    transform: scale(0.80);           /* ← 全体縮小 */
+    transform-origin: top left;
+    width: 200px !important;          /* ← 小さめの幅に */
+    padding: 6px !important;
+    font-size: 13px !important;
+    border-radius: 8px !important;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.08) !important;
+  }
+
+  /* ノートタイトルも調整 */
+  .mNote .title,
+  .mNote .blockTitle {
+    font-size: 14px !important;
+  }
+
+  /* ===== Board 中央の点（青丸） ===== */
+  .centerPoint,
+  .dot,
+  .pointMarker {
+    width: 10px !important;
+    height: 10px !important;
+    border-width: 2px !important;
+  }
+
+  /* ===== ノート間の衝突を防ぐための余白削減 ===== */
+  .matrixCanvas {
+    padding: 2px !important;
+  }
+}
+/* ==========================================================
+   📱 スマホ横画面：議論終結画面を最上部に＆少し下げる
+========================================================== */
+@media (max-height: 450px) and (orientation: landscape) {
+
+  /* ===== 右上3ボタンより前に表示 ===== */
+  .containerWide,
+  .discussionResult,
+  .resultCard {
+    position: relative !important;
+    z-index: 999 !important;
+  }
+
+  /* ===== 議論終結カードを下げて全体が見えるように ===== */
+  .discussionResult,
+  .resultCard {
+    margin-top: 40px !important;  /* ← 入りきらないので下げる */
+  }
+
+  /* ===== 議論終結カードの内部余白も少し縮小 ===== */
+  .resultCard {
+    padding: 12px !important;
+  }
+
+  /* タイトル（議論終結）も少し小さく */
+  .resultCard h2,
+  .resultCard .title {
+    font-size: 1.1rem !important;
+  }
+
+  /* 文章も少しコンパクトにする */
+  .resultCard p {
+    font-size: 18px !important;
+    line-height: 1.25 !important;
+  }
+}
+/* ==========================================
+   📱 スマホ横画面：議論終結モーダルの最適化
+========================================== */
+@media (max-height: 450px) and (orientation: landscape) {
+
+  /* 🔥 右上ボタンより前面に出す（最重要） */
+  .gate {
+    z-index: 99998 !important;
+  }
+  .gate .panel {
+    z-index: 99999 !important;
+    position: relative !important;
+  }
+
+  /* 🔽 全体を下げて見やすくする */
+  .gate .panel {
+    margin-top: 30px !important;   /* ← 必要なら40, 50 に調整可 */
+    transform: scale(0.95);        /* ← 少しだけ縮小して画面に収める */
+    transform-origin: top center;
+  }
+
+  /* 🔽 panel の内側の余白を少しだけ縮小 */
+  .gate .panel {
+    padding: 12px !important;
+  }
+
+  /* 🔽 タイトルやボタンもバランス調整 */
+  .gate h3 {
+    font-size: 1.1rem !important;
+    margin-bottom: 4px !important;
+  }
+
+  .gate .btn {
+    padding: 4px 8px !important;
+    font-size: 12px !important;
+  }
+
+  /* 🔽 Canvas のサイズも少しだけ縮小 */
+  .gate canvas {
+    max-height: 280px !important;
+    border-radius: 8px !important;
+  }
+}
+/* ==========================================
+   📱 スマホ横画面：盲点モーダル専用縮小
+========================================== */
+@media (max-height: 450px) and (orientation: landscape) {
+
+  /* noiseModal だけ対象にする（議論終結と衝突しない） */
+  .noiseModal .noisePanel {
+    max-width: 90% !important;
+    transform: scale(0.8) !important;
+    transform-origin: top center;
+    padding: 10px !important;
+    margin-top: 120px !important;   
+  }
+
+  .noiseModal h3 {
+    font-size: 1rem !important;
+    margin-bottom: 4px !important;
+  }
+
+  .noiseModal .btn {
+    padding: 4px 10px !important;
+    font-size: 12px !important;
+  }
+
+  .noiseModal li {
+    padding: 8px 10px !important;
+    margin-bottom: 8px !important;
+  }
+
+  .noiseModal li div {
+    font-size: 13px !important;
+    margin-bottom: 4px !important;
+  }
+
+  .noiseModal li > div {
+    font-size: 12px !important;
+    line-height: 1.3 !important;
+  }
+
+  .noiseModal .panel > div > div {
+    width: 70px !important;
+    height: 70px !important;
+    border-width: 8px !important;
+  }
+}
+
+
+/* ===============================
+   📱 スマホ横画面だけボタン縮小
+   =============================== */
+@media (max-height: 450px) and (orientation: landscape) {
+  .headerToggleBtn {
+    width: 40px !important;
+    height: 40px !important;
+    border-radius: 10px !important;
+    font-size: 18px !important;
+    top: 10px !important;
+    left: 10px !important;
+  }
+}
